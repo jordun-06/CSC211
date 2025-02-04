@@ -1,0 +1,45 @@
+//Jordan Martinez
+import java.util.Scanner;
+import java.util.Random; 
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int num_guesses = 0;
+	    boolean correct_guess = false; 
+	    
+	    Random rand = new Random();
+	    Scanner scanner = new Scanner(System.in);
+	    
+	    int num = rand.nextInt(10) + 1;
+	    while(num_guesses < 5 && !correct_guess){
+	        System.out.println("Guess a number");
+	        int guess = scanner.nextInt(); 
+	        
+	        if(guess == num){
+	            System.out.println("Congratulations! You've guessed the correct number.");
+	            correct_guess = true;
+	        }
+	        else if(guess > num){
+	            num_guesses++;
+	            if(num_guesses == 5){
+	                System.out.println("You lost! The correct number is " + num);
+	            }
+	            else{
+	                System.out.println("Too High! Try again");   
+	            }
+	        }
+	        else if (guess < num) {
+	            num_guesses++;
+	            if(num_guesses == 5){
+	                System.out.println("You lost! The correct number is " + num);
+	            }
+	            else{
+	                System.out.println("Too low! Try again");   
+	            } 
+	           }
+}
+}
+}
+	    
+	
