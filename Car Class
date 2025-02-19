@@ -1,0 +1,169 @@
+public class Tester {
+    
+    public static void main(String[] args){
+        Supercar supercar = new Supercar("Coupe",2025,"BMW");
+        //System.out.println(supercar.toString());
+
+        Car car = new Car(); 
+        Junkcar Chrissy = new Junkcar("CRV", 2015,"Honda"); 
+        
+        Car[] cars = new Car[3];
+        cars[0] = Chrissy; 
+        cars[1] = car; 
+        cars[2] = supercar;
+        
+        System.out.println(Chrissy.Compareto(supercar));
+        System.out.println(Chrissy.equals(supercar));
+
+        
+        
+    }
+    
+}
+
+class Automobile { 
+
+	public String model;
+	public int year;
+	public String brand; 
+	
+	public void honk(){
+	    System.out.println("Beep Beep!");
+	}
+	
+	Automobile(){ //Default constructor
+	    model = "sedan";
+	    year = 2000;
+	    brand = "Toyota";
+	}
+	
+	Automobile(String nmodel, int nyear, String nbrand){ //Defined constructor
+	    model = nmodel;
+	    year = nyear;
+	    brand = nbrand; 
+	}
+	
+	 @Override
+	 public boolean equals(Object o){
+	    if( o instanceof Car){
+	        Car tempC = (Car)o;
+	        if ((this.model.equalsIgnoreCase(tempC.model)) && (this.brand.equalsIgnoreCase(tempC.brand)) 
+	        && (this.year == (tempC.year))){
+	            return true;
+	        }
+	        
+	    }
+	     return false; 
+	 }
+	 
+	
+	 public int Compareto(Automobile other){
+	     if (this.year != other.year){
+	         return Integer.compare(this.year, other.year);
+	     }
+	    if(!this.brand.equals(other.brand)){
+	        return this.brand.compareTo(other.brand);
+	    }
+	    return this.model.compareTo(other.model); 
+	 }
+	 
+}
+
+
+class Car extends Automobile {
+    
+    Car(){
+            super(); 
+        }
+        
+    Car(String nmodel, int nyear, String nbrand){ //Defined constructor
+	    model = nmodel;
+	    year = nyear;
+	    brand = nbrand; 
+	}
+    
+    public void accelerate(){
+        System.out.println("The car is accelerating.");
+    }
+    
+    public void reverse(){
+        System.out.println("The car is now reversing.");
+    }
+    public void stop(){
+        System.out.println("The car has stopped.");
+    }
+
+    @Override
+    public String toString(){
+        return "The Model of the car is " + model + "\nthe Brand of the car is " + brand + "\nthe year of the car is " + year;
+    }
+}
+    
+class Supercar extends Car{
+    Supercar(){
+            super(); 
+        }
+        
+    Supercar(String nmodel, int nyear, String nbrand){ //Defined constructor
+	    model = nmodel;
+	    year = nyear;
+	    brand = nbrand; 
+	}
+    @Override
+    public void accelerate(){
+        System.out.println("The Supercar is accelerating.");
+    }
+    @Override
+    public void reverse(){
+        System.out.println("The Supercar is now reversing.");
+    }
+    @Override
+    public void stop(){
+        System.out.println("The Supercar has stopped.");
+    }
+
+    @Override
+    public String toString(){
+        return "The Model of the Supercar is " + model + "\nthe Brand of the Supercar is " + brand + "\nthe year of the Supercar is " + year;
+    }
+    
+    
+    
+}
+
+class Junkcar extends Car{
+    Junkcar(){
+            super(); 
+        }
+        
+Junkcar(String nmodel, int nyear, String nbrand){ //Defined constructor
+	    model = nmodel;
+	    year = nyear;
+	    brand = nbrand; 
+	}
+    @Override
+    public void accelerate(){
+        System.out.println("The Junkcar is accelerating.");
+    }
+    @Override
+    public void reverse(){
+        System.out.println("The Junkcar is now reversing.");
+    }
+    @Override
+    public void stop(){
+        System.out.println("The Junkcar has stopped.");
+    }
+
+    @Override
+    public String toString(){
+        return "The Model of the Junkcar is " + model + "\nthe Brand of the Junkcar is " + brand + "\nthe year of the Junkcar is " + year;
+    }
+    
+}
+
+
+
+    
+
+    
+
