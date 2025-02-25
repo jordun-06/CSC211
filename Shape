@@ -2,8 +2,11 @@
     class Main{
         
         public static void main(String[] args){
+
+         Rectangle r = new Rectangle(); 
          Circle c = new Circle(3.0);
          System.out.println("The number of sides in a " + c.getName() + " = " + c.getNumSides());
+         System.out.println("The number of sides in a " + r.getName()  + " = " + r.getNumSides());
          
             
         }
@@ -68,6 +71,10 @@
             super(4); 
             this.width = width;
             this.length = length; 
+        }
+
+        public String getName(){
+            return "Rectangle"; 
         }
         
     }
