@@ -1,0 +1,73 @@
+//Jordan Martinez
+    class Main{
+        
+        public static void main(String[] args){
+         Circle c = new Circle(3.0);
+         System.out.println("The number of sides in a " + c.getName() + " = " + c.getNumSides());
+         
+            
+        }
+    }
+
+
+    class Shape {
+        
+        int numSides;
+        
+        Shape(){
+            this.numSides = 1;
+        }
+        
+        Shape(int numSides){
+            this.numSides = numSides; 
+        }
+        
+        public int getNumSides() {
+            return numSides; 
+        }
+        
+        public void setNumSides(int newNumSides){
+            this.numSides = newNumSides; 
+        }
+        
+    }
+    
+    
+    class Circle extends Shape {
+        
+        double radius; 
+        
+        
+        public Circle(double radius){
+            super(); 
+            this.radius = radius;
+        }
+        
+        public double getArea(){
+            return 3.14 * (radius * radius);  // or (pi)(radius)^2 
+        }
+        
+        public String getName(){
+            return "Circle"; 
+        }
+        
+    }
+    
+    class Rectangle extends Shape {
+        
+        double length;
+        double width; 
+        
+        public Rectangle(){
+            super(4); 
+            this.length = 1.0;
+            this.width = 1.0; 
+        }
+        
+        public Rectangle(double width, double length){
+            super(4); 
+            this.width = width;
+            this.length = length; 
+        }
+        
+    }
