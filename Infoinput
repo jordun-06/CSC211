@@ -1,0 +1,113 @@
+package test;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+import java.awt.FlowLayout;
+
+public class GUI {
+	
+	public GUI() { 
+	JFrame frame = new JFrame("User Information");	
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+	
+	
+	JLabel name = new JLabel("Enter name: ");
+	JLabel email = new JLabel("Enter email:");
+	JLabel password = new JLabel("Enter password"); 
+	JLabel confirmP = new JLabel("Confirm Password"); 
+	JButton submit = new JButton("Submit"); 
+	JButton clear = new JButton("Clear"); 
+	
+	
+	
+	JPanel panel = new JPanel(); 
+	panel.setLayout(new FlowLayout());
+	
+	submit.setPreferredSize(new Dimension(200,30));
+	
+	
+	JTextField nametextField = new JTextField(10); 
+	JTextField emailTextField = new JTextField(10); 
+	JTextField passTextField = new JTextField(10); 
+	JTextField confirmPTextField = new JTextField(10); 
+
+	
+	nametextField.setPreferredSize(new Dimension(250,40));
+	
+	panel.add(name);
+	panel.add(nametextField);
+	
+	panel.add(email);
+	panel.add(emailTextField); 
+	
+	panel.add(password);
+	panel.add(passTextField);
+	
+	panel.add(confirmP);
+	panel.add(confirmPTextField);
+	
+	panel.add(submit);
+	panel.add(clear);
+	
+	
+	JTextField[] TextFieldArray = {nametextField,emailTextField,passTextField,confirmPTextField}; 
+	
+	submit.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			boolean isFull = true; 
+			for(int i = 0; i < TextFieldArray.length;i++) {
+				if(TextFieldArray[i].getText().isBlank()) {
+					isFull = false;
+					break;
+				}
+}
+			if(!isFull) {
+				JOptionPane.showMessageDialog(frame, "Please fill in all spaces.");
+			
+			}
+			
+			else  {
+				JOptionPane.showMessageDialog(frame, "Name is: " + nametextField.getText()+ "\n" + "Email is: " + emailTextField.getText() +
+						"\n" + "Password is: " +  passTextField.getText() + "\n" + "Confirmed password is: " + confirmPTextField.getText());	
+			}
+			
+		}});
+	
+	
+	clear.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			for(int i = 0; i < TextFieldArray.length; i++) {
+				TextFieldArray[i].setText(" "); 
+			}
+			
+		}
+		
+		
+		
+	});
+	
+	
+	
+	frame.getContentPane().add(panel); 
+	
+	frame.pack();
+	frame.setVisible(true);
+	
+	
+	
+	
+	}
+
+
+
+
+	public static void main(String [] args) { 
+		new GUI(); 
+		
+		
+	}
+
+}
