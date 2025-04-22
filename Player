@@ -1,0 +1,66 @@
+package src;
+
+public class Player {
+	String name; 
+	int weight; 
+	String height;
+	String position; 
+	
+	public Player() {
+		name = "Jordan Martinez"; 
+		weight = 170; 
+		height = "6'2";
+		position = "Point Guard"; 
+		
+	}
+	
+	public Player(String name, int weight, String height, String position) {
+		this.name = name; 
+		this.weight = weight; 
+		this.height = height; 
+		this.position = position; 
+	}
+	
+	public String toString() {
+		return "My name is " + name + ". I weigh " + weight + " pounds." +  
+				" I'm also: " + height + " and I play " + position + "."; 
+		
+	}
+	
+	void dribble() {
+		System.out.println(name + " dribbles"); 
+	}
+	
+	public String getName() {
+		return name; 
+	}
+	
+	public int getWeight() {
+		return weight; 
+	}
+	
+	public String getHeight() {
+		return height; 
+	}
+	
+	public String getPosition() {
+		return position; 
+	}
+	
+	void setName(String name) {
+		this.name = name;
+	}
+	
+	void setWeight(int weight) {
+		this.weight = weight;
+	}
+	
+	void setHeight(String height) {
+		this.height = height;
+	}
+	
+	void setPosition(String position) {
+		this.position = position; 
+	}
+	
+}
