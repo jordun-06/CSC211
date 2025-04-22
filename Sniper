@@ -1,0 +1,36 @@
+package src;
+
+public class Sniper extends Player{
+	
+	String style = "Sniper"; 
+
+	public Sniper() {
+		super(); 
+		style = "Sniper"; 
+	}
+	
+	public Sniper(String name, int weight, String height, String position) {
+		this.name = name; 
+		this.weight = weight; 
+		this.height = height; 
+		this.position = position; 
+		style = "Sniper"; 
+	}
+	
+	@Override
+	public String toString() {
+		return "My name is " + name + ". I weigh " + weight + " pounds." +  
+				"I'm also: " + height + " and I play " + position + "." + 
+				" I am the Sniper for the team.";
+		
+	}
+	
+	void Snipe() {
+		System.out.println(name + " takes a shot from deep and...SCORES");	
+		}
+
+
+
+	
+	
+}
