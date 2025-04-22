@@ -1,1 +1,29 @@
+package src;
+
+public class Main {
+	public static void main(String [] args) {
+		
+		Sniper player = new Sniper();
+		player.Snipe();
+		player.dribble();
+		
+		
+		Playmaker player1 = new Playmaker("Randall",130,"5'10","Point Guard");
+		player1.Scan();
+		player1.setName("Chris");
+		System.out.println(player1.toString());
+		
+		
+		
+		
+	}
+	
+	
+	
+	 
+	
+	
+	
+	
+}
 
