@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class DecimalToBinary {
+    
+    // Iterative method to convert decimal to binary
+    public static String iterativeDecimalToBinary(int decimal) {
+        if (decimal == 0) {
+            return "0";
+        }
+        
+        StringBuilder binary = new StringBuilder();
+        while (decimal > 0) {
+            int remainder = decimal % 2;
+            binary.insert(0, remainder); // prepend the remainder
+            decimal = decimal / 2;
+        }
+        return binary.toString();
+    }
+    
+    // Recursive method to convert decimal to binary
+    public static String recursiveDecimalToBinary(int decimal) {
+        // Base case
+        if (decimal == 0) {
+            return "";
+        }
+        // Recursive case
+        return recursiveDecimalToBinary(decimal / 2) + (decimal % 2);
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a decimal number: ");
+        int decimal = scanner.nextInt();
+        
+        // Handle negative numbers
+        if (decimal < 0) {
+            System.out.println("Please enter a non-negative integer.");
+            return;
+        }
+        
+        // Handle 0 case for recursive method
+        String recursiveResult = (decimal == 0) ? "0" : recursiveDecimalToBinary(decimal);
+        
+        System.out.println("Iterative method result: " + iterativeDecimalToBinary(decimal));
+        System.out.println("Recursive method result: " + recursiveResult);
+        
+        scanner.close();
+    }
+}
