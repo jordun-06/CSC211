@@ -1,1 +1,38 @@
+import java.util.Scanner; 
+import java.util.Arrays; 
+
+public class Main {
+
+public static void main(String[] args){
+Scanner scanner = new Scanner(System.in); 
+System.out.println("Enter a number: ");
+int number = scanner.nextInt(); 
+
+System.out.println("The fib number is: " + fibonacci(number)); 
+System.out.println("The fib loop number is: " + fibloop(number));
+}
+
+
+//recursive algorithm for fibonacci
+private static long fibonacci(int number) {
+if(number <= 1){
+return number; 
+}
+return (fibonacci(number - 1) + fibonacci(number - 2));
+
+}
+
+//iterative algorithm for fibonacci 
+private static String fibloop(int number){
+    int[] arr = new int[number];
+    arr[1] = 1;
+    for(int i = 2; i < number; i++){
+        arr[i] = arr[i-1] + arr[i -2]; 
+    }
+    return (Arrays.toString(arr)); 
+}
+
+
+
+}
 
